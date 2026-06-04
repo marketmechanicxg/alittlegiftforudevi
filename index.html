@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> Devi Day 🤍</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Petit+Formal+Script&family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/dark-romantic.css" />
+  <link rel="stylesheet" href="css/performance.css" />
+  <link rel="stylesheet" href="css/gpu-optimization.css" />
+  <!-- Device tier detection: runs synchronously so later scripts can read window.DeviceTier -->
+  <script src="js/device-tier-system.js"></script>
+</head>
+<body>
+
+  <!-- ===== GLOBAL CINEMATIC BACKGROUND (fixed, z=-10, one unified layer) ===== -->
+  <div id="global-bg-layer" aria-hidden="true"></div>
+
+  <!-- ===== INTRO SCENE ===== -->
+  <div id="intro-scene">
+    <canvas id="particle-canvas-intro"></canvas>
+    <div id="gift-wrapper">
+      <div id="gift-container" onclick="openGift()">
+        <div id="gift-box">
+          <div class="gift-lid">
+            <div class="ribbon-h"></div>
+            <div class="ribbon-v"></div>
+            <div class="bow">
+              <div class="bow-left"></div>
+              <div class="bow-right"></div>
+              <div class="bow-center"></div>
+            </div>
+          </div>
+          <div class="gift-body">
+            <div class="ribbon-body-h"></div>
+            <div class="ribbon-body-v"></div>
+          </div>
+        </div>
+        <p class="gift-hint">🎂 tap to open your gift ✨</p>
+      </div>
+      <div id="bloom-container"></div>
+    </div>
+    <div id="petal-rain-intro"></div>
+    <div id="intro-overlay"></div>
+  </div>
+
+  <!-- Fixed ambient layers — live at body level so they cover ALL sections -->
+  <div class="cinematic-vignette"></div>
+  <canvas id="particle-canvas"></canvas>
+  <div id="falling-petals"></div>
+
+  <!-- ===== MAIN WEBSITE ===== -->
+  <div id="main-site" class="hidden">
+
+    <!-- ===== HERO ===== -->
+    <section id="hero">
+      <div class="hero-content">
+        <p class="hero-eyebrow">a birthday serenade in full bloom</p>
+        <h1 class="hero-title">
+          <span class="line1">Happy Birthday,</span>
+          <span class="line2 italic">My Whole World</span>
+        </h1>
+        <p class="hero-sub">Today the stars aligned just to celebrate the day you were born into this world — and into my life.</p>
+        <div class="hero-flowers">
+          <svg class="hero-flower" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <g class="flower-group">
+              <ellipse cx="50" cy="30" rx="12" ry="22" fill="rgba(255,182,193,0.85)" class="petal p1"/>
+              <ellipse cx="50" cy="30" rx="12" ry="22" fill="rgba(255,182,193,0.85)" class="petal p2" transform="rotate(60,50,50)"/>
+              <ellipse cx="50" cy="30" rx="12" ry="22" fill="rgba(255,182,193,0.85)" class="petal p3" transform="rotate(120,50,50)"/>
+              <ellipse cx="50" cy="30" rx="12" ry="22" fill="rgba(255,192,203,0.85)" class="petal p4" transform="rotate(180,50,50)"/>
+              <ellipse cx="50" cy="30" rx="12" ry="22" fill="rgba(255,192,203,0.85)" class="petal p5" transform="rotate(240,50,50)"/>
+              <ellipse cx="50" cy="30" rx="12" ry="22" fill="rgba(255,192,203,0.85)" class="petal p6" transform="rotate(300,50,50)"/>
+              <circle cx="50" cy="50" r="10" fill="rgba(255,220,180,0.95)"/>
+            </g>
+          </svg>
+        </div>
+        <a href="#message" class="scroll-btn">
+          <span>Discover your birthday surprise</span>
+          <div class="scroll-arrow">↓</div>
+        </a>
+      </div>
+      
+        
+        
+        
+      </div>
+    </section>
+
+    <!-- ===== MESSAGE ===== -->
+    <section id="message">
+      <div class="section-inner">
+        <div class="message-card glass">
+          <div class="card-flowers-top">
+            <span class="inline-flower">🌸</span>
+            <span class="inline-flower delay1">🌺</span>
+            <span class="inline-flower delay2">🌸</span>
+          </div>
+          <p class="msg-label">from the deepest part of my heart</p>
+          <h2 class="msg-title">The day you were born<br/><em>was the day the world</em><br/>became extraordinary.</h2>
+          <p class="msg-body">There are days that simply matter more than others — and the day you came into this world is one that the universe should celebrate forever. You are not just someone I love; you are someone who has made every ordinary Tuesday feel like magic, every quiet evening feel like poetry.</p>
+          <p class="msg-body">On your birthday, I want you to know this: you deserve every flower in every garden, every star in every sky, and every beautiful thing this life has to offer. You are rare. You are wonderful. And I am endlessly grateful that I get to be the one who loves you. 🎂</p>
+          <div class="msg-signature">— Yours, completely & forever 🌹</div>
+        </div>
+      </div>
+      <div class="section-petals">
+        <div class="s-petal sp1">🌸</div>
+        <div class="s-petal sp2">🌺</div>
+        <div class="s-petal sp3">🌼</div>
+        <div class="s-petal sp4">🌸</div>
+        <div class="s-petal sp5">🌷</div>
+      </div>
+    </section>
+
+    <!-- ===== REASONS ===== -->
+    <section id="reasons">
+      <div class="section-inner">
+        <p class="section-eyebrow">a thousand birthday wishes</p>
+        <h2 class="section-title">What I Celebrate About You</h2>
+        <div class="reasons-grid">
+          <div class="reason-card glass reveal-card"><div class="reason-icon">🌹</div><h3>Your Smile</h3><p>Happy birthday to the smile that rewrites my entire world every single time it appears.</p></div>
+          <div class="reason-card glass reveal-card delay1"><div class="reason-icon">💫</div><h3>Your Soul</h3><p>Rare, radiant, and irreplaceable. The world is luminous because you exist in it.</p></div>
+          <div class="reason-card glass reveal-card delay2"><div class="reason-icon">🌸</div><h3>Your Kindness</h3><p>The tenderness you carry in your heart is the most beautiful thing I have ever witnessed.</p></div>
+          <div class="reason-card glass reveal-card delay3"><div class="reason-icon">✨</div><h3>Your Laughter</h3><p>May today fill your lungs with so much laughter it stays with you for the whole year ahead.</p></div>
+          <div class="reason-card glass reveal-card delay4"><div class="reason-icon">🌺</div><h3>Your Strength</h3><p>You navigate this world with such elegant grace. Watching you is a privilege I never take lightly.</p></div>
+          <div class="reason-card glass reveal-card delay5"><div class="reason-icon">💖</div><h3>Simply Being You</h3><p>Every version of you — every mood, every moment, every flaw — is more than enough. You are everything.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== GARDEN ===== -->
+    <section id="garden">
+      <div class="garden-bg"></div>
+      <div class="section-inner">
+        <p class="section-eyebrow">your birthday garden</p>
+        <h2 class="section-title garden-title">A Garden Blooming<br/><em>On Your Special Day</em></h2>
+        <div class="flower-garden">
+          <div class="garden-flower gf1"><div class="gf-bloom">🌹</div><div class="gf-stem"></div><div class="gf-tooltip glass"><strong>Rose</strong><span>May love surround you always</span></div></div>
+          <div class="garden-flower gf2"><div class="gf-bloom">🌸</div><div class="gf-stem"></div><div class="gf-tooltip glass"><strong>Cherry Blossom</strong><span>May you bloom in your own time</span></div></div>
+          <div class="garden-flower gf3"><div class="gf-bloom">🪷</div><div class="gf-stem"></div><div class="gf-tooltip glass"><strong>Lotus</strong><span>May your heart stay pure & soft</span></div></div>
+          <div class="garden-flower gf4"><div class="gf-bloom">🌺</div><div class="gf-stem"></div><div class="gf-tooltip glass"><strong>Hibiscus</strong><span>May passion light every step</span></div></div>
+          <div class="garden-flower gf5"><div class="gf-bloom">🌼</div><div class="gf-stem"></div><div class="gf-tooltip glass"><strong>Daisy</strong><span>May joy follow you everywhere</span></div></div>
+          <div class="garden-flower gf6"><div class="gf-bloom">🌷</div><div class="gf-stem"></div><div class="gf-tooltip glass"><strong>Tulip</strong><span>May all your wishes come true</span></div></div>
+          <div class="garden-flower gf7"><div class="gf-bloom">🌻</div><div class="gf-stem"></div><div class="gf-tooltip glass"><strong>Sunflower</strong><span>May your whole year shine bright</span></div></div>
+        </div>
+        <p class="garden-note">🎂 hover each flower — a birthday wish is hiding inside ✨</p>
+      </div>
+    </section>
+
+    <!-- ===== MEMORIES ===== -->
+    <section id="memories">
+      <div class="section-inner">
+        <p class="section-eyebrow">moments worth keeping forever</p>
+        <h2 class="section-title">You, Captured<br/><em>In All Your Glory</em></h2>
+        <div class="gallery-grid">
+          <div class="gallery-card glass gc1"><img src="assets/images/img1.jpeg" class="gallery-img" alt="Photo 1"><div class="gallery-caption">radiant</div></div>
+          <div class="gallery-card glass gc2"><img src="assets/images/img2.jpeg" class="gallery-img" alt="Photo 2"><div class="gallery-caption">always</div></div>
+          <div class="gallery-card glass gc3"><img src="assets/images/img3.jpeg" class="gallery-img" alt="Photo 3"><div class="gallery-caption">&</div></div>
+          <div class="gallery-card glass gc4"><img src="assets/images/img4.jpeg" class="gallery-img" alt="Photo 4"><div class="gallery-caption">magical</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FINALE ===== -->
+    <section id="finale">
+      <canvas id="finale-canvas"></canvas>
+      <div class="finale-inner">
+        <div class="finale-flowers">
+          <span class="ff">🌸</span><span class="ff delay1">🌺</span><span class="ff delay2">🌹</span><span class="ff delay3">🌸</span><span class="ff delay4">🌷</span>
+        </div>
+        <p class="finale-eyebrow">happy birthday, my love 🎂</p>
+        <h2 class="finale-title">You Are Loved<br/><em>More Than You Will Ever Know</em></h2>
+        <p class="finale-body">On this beautiful day that belongs entirely to you — I want you to feel it all. Every wish, every petal, every word here was made with one simple truth: loving you is the greatest privilege of my life. You deserve the world. You deserve every flower. You deserve to be celebrated — not just today, but every single day. Happy Birthday, my love. Here is to you. 🌹</p>
+        <div class="finale-heart"><div class="heart-pulse">💗</div></div>
+        <p class="finale-sig">Made with endless love, just for you 🎂🌸</p>
+      </div>
+    </section>
+
+    <footer><p>🎂 crafted with love, petals & birthday magic 🌸</p></footer>
+  </div>
+
+  <!-- Scripts — tier already set in <head>; engine files load in dependency order -->
+  <script src="js/render-loop.js"></script>
+  <script src="js/particle-pool.js"></script>
+  <script src="js/performance-manager.js"></script>
+  <script src="js/canvas-flower-engine.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/audio-system.js"></script>
+  <script src="js/intro.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
